@@ -27,10 +27,10 @@ def main():
     load_model_sym_words(queriesDB)
     print('finished with the model, printing the synonyms')
     print('The synonyms dict is {}\n the length is {} (number of keys)'.format(queriesDB.synonyms, len(queriesDB.synonyms)))
-    # print('now starting add similar')
-    # queriesDB.add_similar_words()
-    # print('writing to file')
-    # queriesDB.write_to_file()
+    print('now starting add similar')
+    queriesDB.add_similar_words()
+    print('writing to file')
+    queriesDB.write_to_file()
 
 
 def load_model_sym_words(queriesDB):
@@ -52,12 +52,24 @@ def get_similar_words(word, model):
     if model.vocab.get(word.upper()) is not None:
         temp_list += model.wv.similar_by_word(word.upper())
     for symword, score in temp_list:
-        synword = symword.lower().strip('-').strip('#').strip('\'').strip()
-        if synword not in STOPWORDS:
-            if similar(word, synword) < 0.5:
-                if score > 0.3:
-                    similar_words.update(synword.split('_'))
+        synword = symword.lower().strip('-').strip('#').strip('\'').strip('\\').strip().split('_')
+        if type(synword) is str:
+            if filter(synword, score, word):
+                similar_words.update(synword)
+        else:
+            for sword in synword:
+                if filter(sword, score, word):
+                    similar_words.update(sword)
+
     return similar_words
+
+
+def filter(symword, score, word):
+    if symword not in STOPWORDS:
+        if similar(word, symword) < 0.5:
+            if score > 0.3:
+                return True
+    return False
 
 
 def similar(a, b):
