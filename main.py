@@ -56,10 +56,10 @@ def get_similar_words(word, model):
         if len(synword) > 1:
             for sword in synword:
                 if filter(sword, score, word):
-                    similar_words.update(sword)
+                    similar_words.add(sword)
         else:
-            if filter(synword, score, word):
-                similar_words.update(synword)
+            if filter(synword[0], score, word):
+                similar_words.add(synword[0])
     return similar_words
 
 
