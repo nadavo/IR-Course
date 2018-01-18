@@ -53,14 +53,13 @@ def get_similar_words(word, model):
         temp_list += model.wv.similar_by_word(word.upper())
     for symword, score in temp_list:
         synword = symword.lower().strip('-').strip('#').strip('\'').strip('\\').strip().split('_')
-        if type(synword) is str:
-            if filter(synword, score, word):
-                similar_words.update(synword)
-        else:
+        if len(synword) > 1:
             for sword in synword:
                 if filter(sword, score, word):
                     similar_words.update(sword)
-
+        else:
+            if filter(synword, score, word):
+                similar_words.update(synword)
     return similar_words
 
 
