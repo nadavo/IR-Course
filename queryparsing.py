@@ -25,7 +25,7 @@ class QueriesParser:
         self.__parse_queries()
         self.__generate_query_sentences()
         self.__generate_Query_sentences()
-        self.synonyms = defaultdict(set)
+        self.synonyms = defaultdict(list)
         self.__initialize_synonyms()
 
     def __parse_queries(self):
@@ -58,7 +58,7 @@ class QueriesParser:
     def __initialize_synonyms(self):
         for word_list in self.queries.values():
             for word in word_list:
-                self.synonyms[word] = set()
+                self.synonyms[word] = []
 
     def get_title_query_sentences(self):
         return self.Query_sentences
@@ -80,11 +80,14 @@ class QueriesParser:
         """
         return self.Queries
 
-    def add_similar_words(self):
+    def add_similar_words(self, num_words=3):
         for index, words in self.queries.items():
             for word in words:
                 syn = ['<', word]
-                syn.extend(self.synonyms[word])
+                similar_words = self.synonyms.get(word, [])
+                num_sim = min(num_words, len(similar_words))
+                for i in range(num_sim):
+                    syn.append(similar_words[i])
                 syn.append('>')
                 self.queries[index].extend(' '.join(syn))
 
