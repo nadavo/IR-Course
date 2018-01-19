@@ -1,22 +1,28 @@
 # import modules & set up logging
 import logging
 from gensim.models import KeyedVectors
-from queryparsing import QueriesParser
 from ModelInterface import ModelInterface
-from collections import defaultdict
+from queryparsing import QueriesParser
 from difflib import SequenceMatcher
-from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk import download
+from nltk.stem import PorterStemmer
+import enchant
+from Timer import Timer
 
 # In order to download the stopwords list uncomment the next line
 # download('stopwords')
 
+SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^', '*', '(', ')', '[', ']', '{', '}', '|', '<', '>', '?', '`', '\'', '\"', '\n', '\t', '-', ' '}
 STOPWORDS = set(stopwords.words('english'))
 QUERYFILE = 'trainqueriesFirst50.xml'
+MIN_WORD_LENGTH = 2
+MIN_SIM_SCORE = 0.5
+MAX_SIM_RATIO = 0.8
+NUM_ADD_WORDS = 3
 
 
 def main():
+    timer = Timer("Total Runtime")
     logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
     # model_interface = ModelInterface(model)
@@ -24,25 +30,29 @@ def main():
 
     # model_interface.test_interface()
 
+    # TODO implement similar word lookup and query expansion only for short queries
     load_model_sym_words(queriesDB)
     print('finished with the model, printing the synonyms')
     print('The synonyms dict is {}\n the length is {} (number of keys)'.format(queriesDB.synonyms, len(queriesDB.synonyms)))
     print('now starting add similar')
-    queriesDB.add_similar_words()
+    queriesDB.add_similar_words(NUM_ADD_WORDS)
     print('writing to file')
     queriesDB.write_to_file()
+    timer.stop()
 
 
 def load_model_sym_words(queriesDB):
+    timer = Timer("Word2Vec Model Calculations")
     # using gzipped/bz2 input works too, no need to unzip:
     model = KeyedVectors.load_word2vec_format('Word2Vec/google/GoogleNewsnegative300.bin.gz', binary=True)
 
     for word in queriesDB.get_voc_words():
         queriesDB.synonyms[word] = get_similar_words(word, model)
+    timer.stop()
 
 
 def get_similar_words(word, model):
-    similar_words = set()
+    similar_words = []
 
     temp_list = []
     if model.vocab.get(word) is not None:
@@ -51,24 +61,53 @@ def get_similar_words(word, model):
         temp_list += model.wv.similar_by_word(word.title())
     if model.vocab.get(word.upper()) is not None:
         temp_list += model.wv.similar_by_word(word.upper())
-    for symword, score in temp_list:
-        synword = symword.lower().strip('-').strip('#').strip('\'').strip('\\').strip().split('_')
-        if len(synword) > 1:
+
+    for simword, score in temp_list:
+        synword = simword.lower()
+        if '_' in simword:
+            synword = synword.split('_')
             for sword in synword:
-                if filter(sword, score, word):
-                    similar_words.add(sword)
+                if word_filter(sword, score, word, similar_words):
+                    similar_words.append(sword)
         else:
-            if filter(synword[0], score, word):
-                similar_words.add(synword[0])
+            if word_filter(synword, score, word, similar_words):
+                similar_words.append(synword)
+
     return similar_words
 
 
-def filter(symword, score, word):
-    if symword not in STOPWORDS:
-        if similar(word, symword) < 0.5:
-            if score > 0.3:
-                return True
+def word_filter(simword, score, word, similar_words):
+    if len(simword) <= MIN_WORD_LENGTH or len(word) <= MIN_WORD_LENGTH:
+        return False
+    if not is_correct_spelling(simword):
+        return False
+    if simword in STOPWORDS:
+        return False
+    for symbol in SYMBOLS:
+        if symbol in simword:
+            return False
+    if are_stems_equal(word, simword):
+        return False
+    for added_word in similar_words:
+        if are_stems_equal(simword, added_word):
+            return False
+    if score < MIN_SIM_SCORE:
+        return False
+    return True
+
+
+def are_stems_equal(word, simword):
+    stemmer = PorterStemmer()
+    simword_stem = stemmer.stem(simword)
+    word_stem = stemmer.stem(word)
+    if word == simword or similar(word, simword) > MAX_SIM_RATIO or simword_stem == word_stem or simword_stem == word or simword == word_stem:
+        return True
     return False
+
+
+def is_correct_spelling(simword):
+    spellchecker = enchant.Dict("en_US")
+    return spellchecker.check(simword)
 
 
 def similar(a, b):
