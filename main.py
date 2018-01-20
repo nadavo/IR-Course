@@ -1,17 +1,19 @@
 # import modules & set up logging
-import logging
 from gensim.models import KeyedVectors
 from ModelInterface import ModelInterface
 from queryparsing import QueriesParser
 from difflib import SequenceMatcher
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-import enchant
 from Timer import Timer
+import logging
+import enchant
+import pickle
 
 # In order to download the stopwords list uncomment the next line
 # download('stopwords')
 
+# Global Constants and Parameters
 SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^', '*', '(', ')', '[', ']', '{', '}', '|', '<', '>', '?', '`', '\'', '\"', '\n', '\t', '-', ' '}
 STOPWORDS = set(stopwords.words('english'))
 QUERYFILE = 'trainqueriesFirst50.xml'
@@ -19,6 +21,8 @@ MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
 NUM_ADD_WORDS = 3
+SYNONYMS_CACHE = "cache/synonyms_{}_{}_{}.pkl".format(MIN_WORD_LENGTH, MIN_SIM_SCORE, MAX_SIM_RATIO)
+LOAD_FROM_CACHE = True
 
 
 def main():
@@ -31,7 +35,7 @@ def main():
     # model_interface.test_interface()
 
     # TODO implement similar word lookup and query expansion only for short queries
-    load_model_sym_words(queriesDB)
+    load_model_sym_words(queriesDB, LOAD_FROM_CACHE)
     print('finished with the model, printing the synonyms')
     print('The synonyms dict is {}\n the length is {} (number of keys)'.format(queriesDB.synonyms, len(queriesDB.synonyms)))
     print('now starting add similar')
@@ -41,14 +45,20 @@ def main():
     timer.stop()
 
 
-def load_model_sym_words(queriesDB):
-    timer = Timer("Word2Vec Model Calculations")
-    # using gzipped/bz2 input works too, no need to unzip:
-    model = KeyedVectors.load_word2vec_format('Word2Vec/google/GoogleNewsnegative300.bin.gz', binary=True)
+def load_model_sym_words(queriesDB, cached):
+    if cached:
+        with open(SYNONYMS_CACHE, 'rb') as cache:
+            queriesDB.synonyms = pickle.load(cache)
+    else:
+        timer = Timer("Word2Vec Model Calculations")
+        # using gzipped/bz2 input works too, no need to unzip:
+        model = KeyedVectors.load_word2vec_format('Word2Vec/google/GoogleNewsnegative300.bin.gz', binary=True)
 
-    for word in queriesDB.get_voc_words():
-        queriesDB.synonyms[word] = get_similar_words(word, model)
-    timer.stop()
+        for word in queriesDB.get_voc_words():
+            queriesDB.synonyms[word] = get_similar_words(word, model)
+        with open(SYNONYMS_CACHE, 'wb') as cache:
+            pickle.dump(queriesDB.synonyms, cache)
+        timer.stop()
 
 
 def get_similar_words(word, model):
