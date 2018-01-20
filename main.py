@@ -20,8 +20,8 @@ QUERYFILE = 'trainqueriesFirst50.xml'
 MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
-NUM_ADD_WORDS = 3
-SYNONYMS_CACHE = "cache/synonyms_{}_{}_{}.pkl".format(MIN_WORD_LENGTH, MIN_SIM_SCORE, MAX_SIM_RATIO)
+NUM_ADD_WORDS = 1
+SYNONYMS_CACHE = "cache/synonyms_{}_{}_{}_{}.pkl".format(QUERYFILE, MIN_WORD_LENGTH, MIN_SIM_SCORE, MAX_SIM_RATIO)
 LOAD_FROM_CACHE = True
 
 
