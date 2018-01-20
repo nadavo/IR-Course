@@ -16,7 +16,9 @@ import pickle
 # Global Constants and Parameters
 SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^', '*', '(', ')', '[', ']', '{', '}', '|', '<', '>', '?', '`', '\'', '\"', '\n', '\t', '-', ' '}
 STOPWORDS = set(stopwords.words('english'))
-QUERYFILE = 'trainqueriesFirst50.xml'
+TRAINING_QUERIES = 'trainqueriesFirst50-modified.xml'
+ALL_QUERIES = 'queriesROBUST-modified.xml'
+QUERYFILE = ALL_QUERIES
 MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
