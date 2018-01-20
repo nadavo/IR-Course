@@ -80,7 +80,7 @@ class QueriesParser:
         """
         return self.Queries
 
-    def add_similar_words(self, num_words=3):
+    def add_similar_words(self, num_words=1):
         """
         Adds the similar words from word2vec model to original queries
         :parameter: num_words: number of similar words to add to query for each query word (default is 3)
