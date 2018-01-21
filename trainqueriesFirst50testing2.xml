@@ -17,7 +17,7 @@
 	</query>
 	<query>
 		<number>305</number>
-		<text>#combine( dangerous vehicles )</text>
+		<text>#weight( 0.8 #combine( dangerous vehicles ) 0.2 #weight( 0.6803675889968872 hazardous 0.8008111715316772 cars ) )</text>
 	</query>
 	<query>
 		<number>306</number>
@@ -29,11 +29,11 @@
 	</query>
 	<query>
 		<number>308</number>
-		<text>#combine( implant dentistry )</text>
+		<text>#weight( 0.8 #combine( implant dentistry ) 0.2 #weight( 0.6685714721679688 prosthesis 0.7131364941596985 orthodontics ) )</text>
 	</query>
 	<query>
 		<number>309</number>
-		<text>#combine( rap crime )</text>
+		<text>#weight( 0.8 #combine( rap crime ) 0.2 #weight( 0.8357978463172913 hip 0.6168578863143921 murders ) )</text>
 	</query>
 	<query>
 		<number>310</number>
@@ -41,11 +41,11 @@
 	</query>
 	<query>
 		<number>311</number>
-		<text>#combine( industrial espionage )</text>
+		<text>#weight( 0.8 #combine( industrial espionage ) 0.2 #weight( 0.6174907684326172 shredded 0.7209441065788269 spying ) )</text>
 	</query>
 	<query>
 		<number>312</number>
-		<text>#combine( hydroponics )</text>
+		<text>#weight( 0.8 #combine( hydroponics ) 0.2 #weight( 0.5931528210639954 gardening 0.5898861885070801 cultivation ) )</text>
 	</query>
 	<query>
 		<number>313</number>
@@ -53,7 +53,7 @@
 	</query>
 	<query>
 		<number>314</number>
-		<text>#combine( marine vegetation )</text>
+		<text>#weight( 0.8 #combine( marine vegetation ) 0.2 #weight( 0.6203711032867432 maritime 0.7498385906219482 grasses ) )</text>
 	</query>
 	<query>
 		<number>315</number>
@@ -65,7 +65,7 @@
 	</query>
 	<query>
 		<number>317</number>
-		<text>#combine( unsolicited faxes )</text>
+		<text>#weight( 0.8 #combine( unsolicited faxes ) 0.2 #weight( 0.6130410432815552 takeover 0.6787452697753906 mails ) )</text>
 	</query>
 	<query>
 		<number>318</number>
@@ -81,7 +81,7 @@
 	</query>
 	<query>
 		<number>321</number>
-		<text>#combine( women parliaments )</text>
+		<text>#weight( 0.8 #combine( women parliaments ) 0.2 #weight( 0.7674938440322876 men 0.5904561877250671 legislatures ) )</text>
 	</query>
 	<query>
 		<number>322</number>
@@ -97,19 +97,19 @@
 	</query>
 	<query>
 		<number>325</number>
-		<text>#combine( cult lifestyles )</text>
+		<text>#weight( 0.8 #combine( cult lifestyles ) 0.2 #weight( 0.574384868144989 classic 0.5788547396659851 hectic ) )</text>
 	</query>
 	<query>
 		<number>326</number>
-		<text>#combine( ferry sinkings )</text>
+		<text>#weight( 0.8 #combine( ferry sinkings ) 0.2 #weight( 0.7703853249549866 ferryboat 0.6468395590782166 boat ) )</text>
 	</query>
 	<query>
 		<number>327</number>
-		<text>#combine( modern slavery )</text>
+		<text>#weight( 0.8 #combine( modern slavery ) 0.2 #weight( 0.6516120433807373 century 0.7513821721076965 slaves ) )</text>
 	</query>
 	<query>
 		<number>328</number>
-		<text>#combine( pope beatifications )</text>
+		<text>#weight( 0.8 #combine( pope beatifications ) 0.2 #weight( 0.9019140601158142 pontiff 0.7083194851875305 canonizations ) )</text>
 	</query>
 	<query>
 		<number>329</number>
@@ -145,11 +145,11 @@
 	</query>
 	<query>
 		<number>337</number>
-		<text>#combine( viral hepatitis )</text>
+		<text>#weight( 0.8 #combine( viral hepatitis ) 0.2 #weight( 0.5744593143463135 virtuoso 0.6198816895484924 contracted ) )</text>
 	</query>
 	<query>
 		<number>338</number>
-		<text>#combine( risk aspirin )</text>
+		<text>#weight( 0.8 #combine( risk aspirin ) 0.2 #weight( 0.5938692092895508 probability 0.7422869205474854 dose ) )</text>
 	</query>
 	<query>
 		<number>339</number>
@@ -161,19 +161,19 @@
 	</query>
 	<query>
 		<number>341</number>
-		<text>#combine( airport security )</text>
+		<text>#weight( 0.8 #combine( airport security ) 0.2 #weight( 0.792499303817749 international 0.5549001693725586 tightened ) )</text>
 	</query>
 	<query>
 		<number>342</number>
-		<text>#combine( diplomatic expulsion )</text>
+		<text>#weight( 0.8 #combine( diplomatic expulsion ) 0.2 #weight( 0.604476809501648 envoys 0.7014238238334656 expelled ) )</text>
 	</query>
 	<query>
 		<number>343</number>
-		<text>#combine( police deaths )</text>
+		<text>#weight( 0.8 #combine( police deaths ) 0.2 #weight( 0.7243714332580566 officers 0.8199670910835266 fatalities ) )</text>
 	</query>
 	<query>
 		<number>344</number>
-		<text>#combine( abuses e mail )</text>
+		<text>#weight( 0.8 #combine( abuses email ) 0.2 #weight( 0.7263594269752502 rights 0.6310882568359375 website ) )</text>
 	</query>
 	<query>
 		<number>345</number>
@@ -181,19 +181,19 @@
 	</query>
 	<query>
 		<number>346</number>
-		<text>#combine( educational standards )</text>
+		<text>#weight( 0.8 #combine( educational standards ) 0.2 #weight( 0.6330859661102295 visit 0.6429624557495117 requirements ) )</text>
 	</query>
 	<query>
 		<number>347</number>
-		<text>#combine( wildlife extinction )</text>
+		<text>#weight( 0.8 #combine( wildlife extinction ) 0.2 #weight( 0.70230633020401 conservation 0.5743457674980164 extirpation ) )</text>
 	</query>
 	<query>
 		<number>348</number>
-		<text>#combine( agoraphobia )</text>
+		<text>#weight( 0.8 #combine( agoraphobia ) 0.2 #weight( 0.5889010429382324 fear 0.55794358253479 obsessive ) )</text>
 	</query>
 	<query>
 		<number>349</number>
-		<text>#combine( metabolism )</text>
+		<text>#weight( 0.8 #combine( metabolism ) 0.2 #weight( 0.6791696548461914 processes 0.6667091846466064 carbohydrate ) )</text>
 	</query>
 	<query>
 		<number>350</number>

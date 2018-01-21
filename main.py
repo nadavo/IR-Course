@@ -19,14 +19,14 @@ SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^'
 STOPWORDS = set(stopwords.words('english'))
 TRAINING_QUERIES = 'trainqueriesFirst50-modified.xml'
 ALL_QUERIES = 'queriesROBUST-modified.xml'
-EXPANDED_TRAINING = 'trainqueriesFirst50testing.xml'
-EXPANDED_ALL = 'allExpandedQueries.xml'
+EXPANDED_TRAINING = 'trainqueriesFirst50testing2.xml'
+EXPANDED_ALL = 'allExpandedQueries-2.xml'
 QUERYFILE = ALL_QUERIES
 EXPANDEDFILE = EXPANDED_ALL
 MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
-NUM_ADD_WORDS = 1
+NUM_ADD_WORDS = 3
 ORIGINAL_WEIGHT = 0.8
 SYNONYMS_CACHE = "cache/synonyms_{}_{}_{}_{}.pkl".format(QUERYFILE, MIN_WORD_LENGTH, MIN_SIM_SCORE, MAX_SIM_RATIO)
 LOAD_FROM_CACHE = True
