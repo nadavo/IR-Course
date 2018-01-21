@@ -18,7 +18,7 @@ SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^'
 STOPWORDS = set(stopwords.words('english'))
 TRAINING_QUERIES = 'trainqueriesFirst50-modified.xml'
 ALL_QUERIES = 'queriesROBUST-modified.xml'
-QUERYFILE = TRAINING_QUERIES
+QUERYFILE = ALL_QUERIES
 MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
