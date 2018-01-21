@@ -7,8 +7,9 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from Timer import Timer
 import logging
-import enchant
+# import enchant
 import pickle
+from queryexpansion import QueryWriter
 
 # In order to download the stopwords list uncomment the next line
 # download('stopwords')
@@ -18,11 +19,15 @@ SYMBOLS = {'@', '#', '\\', '/', ':', '.', ',', ';', '+', '=', '%', '!', '~', '^'
 STOPWORDS = set(stopwords.words('english'))
 TRAINING_QUERIES = 'trainqueriesFirst50-modified.xml'
 ALL_QUERIES = 'queriesROBUST-modified.xml'
+EXPANDED_TRAINING = 'trainqueriesFirst50testing.xml'
+EXPANDED_ALL = 'allExpandedQueries.xml'
 QUERYFILE = ALL_QUERIES
+EXPANDEDFILE = EXPANDED_ALL
 MIN_WORD_LENGTH = 2
 MIN_SIM_SCORE = 0.5
 MAX_SIM_RATIO = 0.8
 NUM_ADD_WORDS = 1
+ORIGINAL_WEIGHT = 0.8
 SYNONYMS_CACHE = "cache/synonyms_{}_{}_{}_{}.pkl".format(QUERYFILE, MIN_WORD_LENGTH, MIN_SIM_SCORE, MAX_SIM_RATIO)
 LOAD_FROM_CACHE = True
 
@@ -40,10 +45,12 @@ def main():
     load_model_sym_words(queriesDB, LOAD_FROM_CACHE)
     print('finished with the model, printing the synonyms')
     print('The synonyms dict is {}\n the length is {} (number of keys)'.format(queriesDB.synonyms, len(queriesDB.synonyms)))
-    print('now starting add similar')
-    queriesDB.add_similar_words(NUM_ADD_WORDS)
-    print('writing to file')
-    queriesDB.write_to_file()
+    writer = QueryWriter(EXPANDEDFILE, queriesDB)
+    if LOAD_FROM_CACHE:
+        writer.add_similar_words(NUM_ADD_WORDS)
+        writer.write_to_file(ORIGINAL_WEIGHT)
+        exit()
+
     timer.stop()
 
 

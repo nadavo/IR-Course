@@ -1,0 +1,202 @@
+<parameters>
+	<query>
+		<number>301</number>
+		<text>#weight( 0.8 #combine( international organized crime ) 0.2 #weight( global coordinated murders ) )</text>
+	</query>
+	<query>
+		<number>302</number>
+		<text>#weight( 0.8 #combine( poliomyelitis post polio ) 0.2 #weight( polio thanks poliomyelitis ) )</text>
+	</query>
+	<query>
+		<number>303</number>
+		<text>#weight( 0.8 #combine( hubble telescope achievements ) 0.2 #weight( solar optical accomplishments ) )</text>
+	</query>
+	<query>
+		<number>304</number>
+		<text>#weight( 0.8 #combine( endangered species mammals ) 0.2 #weight( species bird vertebrates ) )</text>
+	</query>
+	<query>
+		<number>305</number>
+		<text>#weight( 0.8 #combine( dangerous vehicles ) 0.2 #weight( hazardous cars ) )</text>
+	</query>
+	<query>
+		<number>306</number>
+		<text>#weight( 0.8 #combine( african civilian deaths ) 0.2 #weight( south military fatalities ) )</text>
+	</query>
+	<query>
+		<number>307</number>
+		<text>#weight( 0.8 #combine( new hydroelectric projects ) 0.2 #weight( revamped hydro pro ) )</text>
+	</query>
+	<query>
+		<number>308</number>
+		<text>#weight( 0.8 #combine( implant dentistry ) 0.2 #weight( prosthesis orthodontics ) )</text>
+	</query>
+	<query>
+		<number>309</number>
+		<text>#weight( 0.8 #combine( rap crime ) 0.2 #weight( hip murders ) )</text>
+	</query>
+	<query>
+		<number>310</number>
+		<text>#weight( 0.8 #combine( radio waves brain cancer ) 0.2 #weight( stations swells frontal breast ) )</text>
+	</query>
+	<query>
+		<number>311</number>
+		<text>#weight( 0.8 #combine( industrial espionage ) 0.2 #weight( shredded spying ) )</text>
+	</query>
+	<query>
+		<number>312</number>
+		<text>#weight( 0.8 #combine( hydroponics ) 0.2 #weight( gardening ) )</text>
+	</query>
+	<query>
+		<number>313</number>
+		<text>#weight( 0.8 #combine( magnetic levitation maglev ) 0.2 #weight( electromagnetic astral train ) )</text>
+	</query>
+	<query>
+		<number>314</number>
+		<text>#weight( 0.8 #combine( marine vegetation ) 0.2 #weight( maritime grasses ) )</text>
+	</query>
+	<query>
+		<number>315</number>
+		<text>#weight( 0.8 #combine( unexplained highway accidents ) 0.2 #weight( mysterious expressway fatal ) )</text>
+	</query>
+	<query>
+		<number>316</number>
+		<text>#weight( 0.8 #combine( polygamy polyandry polygyny ) 0.2 #weight( polygamous polyandrous polyandry ) )</text>
+	</query>
+	<query>
+		<number>317</number>
+		<text>#weight( 0.8 #combine( unsolicited faxes ) 0.2 #weight( takeover mails ) )</text>
+	</query>
+	<query>
+		<number>318</number>
+		<text>#weight( 0.8 #combine( best retirement country ) 0.2 #weight( finest pension nation ) )</text>
+	</query>
+	<query>
+		<number>319</number>
+		<text>#weight( 0.8 #combine( new fuel sources ) 0.2 #weight( revamped gasoline unnamed ) )</text>
+	</query>
+	<query>
+		<number>320</number>
+		<text>#weight( 0.8 #combine( undersea fiber optic cable ) 0.2 #weight( seabed diversely collimator bell ) )</text>
+	</query>
+	<query>
+		<number>321</number>
+		<text>#weight( 0.8 #combine( women parliaments ) 0.2 #weight( men legislatures ) )</text>
+	</query>
+	<query>
+		<number>322</number>
+		<text>#weight( 0.8 #combine( international art crime ) 0.2 #weight( global visual murders ) )</text>
+	</query>
+	<query>
+		<number>323</number>
+		<text>#weight( 0.8 #combine( literary journalistic plagiarism ) 0.2 #weight( novelists investigative academic ) )</text>
+	</query>
+	<query>
+		<number>324</number>
+		<text>#weight( 0.8 #combine( argentine british relations ) 0.2 #weight( england ties ) )</text>
+	</query>
+	<query>
+		<number>325</number>
+		<text>#weight( 0.8 #combine( cult lifestyles ) 0.2 #weight( classic hectic ) )</text>
+	</query>
+	<query>
+		<number>326</number>
+		<text>#weight( 0.8 #combine( ferry sinkings ) 0.2 #weight( ferryboat boat ) )</text>
+	</query>
+	<query>
+		<number>327</number>
+		<text>#weight( 0.8 #combine( modern slavery ) 0.2 #weight( century slaves ) )</text>
+	</query>
+	<query>
+		<number>328</number>
+		<text>#weight( 0.8 #combine( pope beatifications ) 0.2 #weight( pontiff canonizations ) )</text>
+	</query>
+	<query>
+		<number>329</number>
+		<text>#weight( 0.8 #combine( mexican air pollution ) 0.2 #weight( border sulfurous air ) )</text>
+	</query>
+	<query>
+		<number>330</number>
+		<text>#weight( 0.8 #combine( iran iraq cooperation ) 0.2 #weight( north topple bilateral ) )</text>
+	</query>
+	<query>
+		<number>331</number>
+		<text>#weight( 0.8 #combine( world bank criticism ) 0.2 #weight( globe lender harsh ) )</text>
+	</query>
+	<query>
+		<number>332</number>
+		<text>#weight( 0.8 #combine( income tax evasion ) 0.2 #weight( taxable taxation tax ) )</text>
+	</query>
+	<query>
+		<number>333</number>
+		<text>#weight( 0.8 #combine( antibiotics bacteria disease ) 0.2 #weight( anti microorganisms infection ) )</text>
+	</query>
+	<query>
+		<number>334</number>
+		<text>#weight( 0.8 #combine( export controls cryptography ) 0.2 #weight( imports coast encryption ) )</text>
+	</query>
+	<query>
+		<number>335</number>
+		<text>#weight( 0.8 #combine( adoptive biological parents ) 0.2 #weight( parents structures grandparents ) )</text>
+	</query>
+	<query>
+		<number>336</number>
+		<text>#weight( 0.8 #combine( black bear attacks ) 0.2 #weight( white grizzly bombings ) )</text>
+	</query>
+	<query>
+		<number>337</number>
+		<text>#weight( 0.8 #combine( viral hepatitis ) 0.2 #weight( virtuoso contracted ) )</text>
+	</query>
+	<query>
+		<number>338</number>
+		<text>#weight( 0.8 #combine( risk aspirin ) 0.2 #weight( probability dose ) )</text>
+	</query>
+	<query>
+		<number>339</number>
+		<text>#weight( 0.8 #combine( alzheimers drug treatment ) 0.2 #weight( disease narcotics therapy ) )</text>
+	</query>
+	<query>
+		<number>340</number>
+		<text>#weight( 0.8 #combine( land mine ban ) 0.2 #weight( farmland coal prohibition ) )</text>
+	</query>
+	<query>
+		<number>341</number>
+		<text>#weight( 0.8 #combine( airport security ) 0.2 #weight( international tightened ) )</text>
+	</query>
+	<query>
+		<number>342</number>
+		<text>#weight( 0.8 #combine( diplomatic expulsion ) 0.2 #weight( envoys expelled ) )</text>
+	</query>
+	<query>
+		<number>343</number>
+		<text>#weight( 0.8 #combine( police deaths ) 0.2 #weight( officers fatalities ) )</text>
+	</query>
+	<query>
+		<number>344</number>
+		<text>#weight( 0.8 #combine( abuses email ) 0.2 #weight( rights website ) )</text>
+	</query>
+	<query>
+		<number>345</number>
+		<text>#weight( 0.8 #combine( overseas tobacco sales ) 0.2 #weight( abroad cigarette revenue ) )</text>
+	</query>
+	<query>
+		<number>346</number>
+		<text>#weight( 0.8 #combine( educational standards ) 0.2 #weight( visit requirements ) )</text>
+	</query>
+	<query>
+		<number>347</number>
+		<text>#weight( 0.8 #combine( wildlife extinction ) 0.2 #weight( conservation extirpation ) )</text>
+	</query>
+	<query>
+		<number>348</number>
+		<text>#weight( 0.8 #combine( agoraphobia ) 0.2 #weight( fear ) )</text>
+	</query>
+	<query>
+		<number>349</number>
+		<text>#weight( 0.8 #combine( metabolism ) 0.2 #weight( processes ) )</text>
+	</query>
+	<query>
+		<number>350</number>
+		<text>#weight( 0.8 #combine( health computer terminals ) 0.2 #weight( care laptop ports ) )</text>
+	</query>
+</parameters>

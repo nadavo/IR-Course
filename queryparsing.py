@@ -87,12 +87,12 @@ class QueriesParser:
         """
         for index, words in self.queries.items():
             for word in words:
-                syn = ['<', word]
+                syn = ['{', word]
                 similar_words = self.synonyms.get(word, [])
                 num_sim = min(num_words, len(similar_words))
                 for i in range(num_sim):
                     syn.append(similar_words[i])
-                syn.append('>')
+                syn.append('}')
                 self.queries[index].extend(' '.join(syn))
 
     @staticmethod
