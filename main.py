@@ -87,10 +87,10 @@ def get_similar_words(word, model):
             synword = synword.split('_')
             for sword in synword:
                 if word_filter(sword, score, word, similar_words):
-                    similar_words.append(sword)
+                    similar_words.append((score, sword))
         else:
             if word_filter(synword, score, word, similar_words):
-                similar_words.append(synword)
+                similar_words.append((score, synword))
 
     return similar_words
 
@@ -107,7 +107,7 @@ def word_filter(simword, score, word, similar_words):
             return False
     if are_stems_equal(word, simword):
         return False
-    for added_word in similar_words:
+    for score, added_word in similar_words:
         if are_stems_equal(simword, added_word):
             return False
     if score < MIN_SIM_SCORE:
