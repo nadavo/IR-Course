@@ -1,0 +1,16 @@
+https://code.google.com/archive/p/word2vec/
+
+Pre-trained word and phrase vectors
+We are publishing pre-trained vectors trained on part of Google News dataset (about 100 billion words). The model contains 300-dimensional vectors for 3 million words and phrases. The phrases were obtained using a simple data-driven approach described in [2]. The archive is available here: GoogleNews-vectors-negative300.bin.gz.
+
+An example output of ./distance GoogleNews-vectors-negative300.bin:
+
+``` Enter word or sentence (EXIT to break): Chinese river
+
+Word Cosine distance
+   Yangtze_River              0.667376
+         Yangtze              0.644091
+  Qiantang_River              0.632979
+Yangtze_tributary 0.623527 Xiangjiang_River 0.615482 Huangpu_River 0.604726 Hanjiang_River 0.598110 Yangtze_river 0.597621 Hongze_Lake 0.594108 Yangtse 0.593442 ```
+
+The above example will average vectors for words 'Chinese' and 'river' and will return the closest neighbors to the resulting vector. More examples that demonstrate results of vector addition are presented in [2]. Note that more precise and disambiguated entity vectors can be found in the following dataset that uses Freebase naming.
